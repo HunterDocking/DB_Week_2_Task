@@ -75,3 +75,36 @@ VALUES (10003, 'Mt Martha Basketball Club', 2018, 'Summer', 'U14', 2, '01/JAN/20
 ,(123456789, 'Mt Martha Basketball Club', 2018, 'Summer', 'U14', 2, '25/DEC/2017')
 ,(102145149, 'Island Isaac Bowls Bash', 2019, 'Winter', 'U16', 4, '09/FEB/2019')
 ,(102145149, 'Barrys Bush Table Tennis Squad', 2019, 'Summer', 'O18', 2, '14/NOV/2018');
+
+
+
+-- Query a
+SELECT pr.PlayerId, p.FName, p.LName, p.Phone, pr.ClubName, c.ContactName, pr.Year, pr.SeasonName, pr.AgeGroup, pr.TeamNumber
+FROM PlayerRegistration pr
+
+INNER JOIN Player p
+ON p.PlayerID = pr.PlayerID
+
+INNER JOIN Club c
+ON c.ClubName = pr.ClubName
+
+ORDER BY PlayerID ASC
+
+
+
+-- Query b
+SELECT Year, AgeGroup, COUNT(AgeGroup) as "Number of Players"
+FROM TeamEntry
+
+GROUP BY Year, AgeGroup
+ORDER BY Year, AgeGroup DESC
+
+
+
+-- Query c
+SELECT ClubName, (SELECT COUNT(Year) FROM PlayerRegistration) as "Amount of Entries total",SeasonName, DateRegistered
+FROM PlayerRegistration
+
+WHERE Year >= 2019
+GROUP BY ClubName, SeasonName, DateRegistered
+
