@@ -45,3 +45,33 @@ PlayerID        INT
 ,FOREIGN KEY (PlayerID) REFERENCES Player
 ,FOREIGN KEY (ClubName, Year, SeasonName, AgeGroup, TeamNumber) REFERENCES TeamEntry
 )
+
+INSERT INTO Club(ClubName ,ContactName)
+VALUES ('Mt Martha Basketball Club', 'Bob Jane')
+,('Coyote Creek Football Team', 'John Smith')
+,('Barrys Bush Table Tennis Squad', 'Barry B Benson')
+,('Island Isaac Bowls Bash', 'Jane Doe');
+
+INSERT INTO Season(Year ,SeasonName)
+VALUES (2018, 'Winter')
+,(2018, 'Summer')
+,(2019, 'Winter')
+,(2019, 'Summer');
+
+INSERT INTO Player(PlayerID ,Fname ,Lname ,Phone)
+VALUES (10002, 'John', 'Howard', 5552345)
+,(10003, 'John', 'Howard', 5552345)
+,(102145149, 'Hunter', 'Docking', 0447781817)
+,(123456789, 'Mhorck', 'Rohmig', 0484081250);
+
+INSERT INTO TeamEntry(ClubName ,Year ,SeasonName ,AgeGroup ,TeamNumber)
+VALUES ('Mt Martha Basketball Club', 2018, 'Summer', 'U14', 1)
+,('Mt Martha Basketball Club', 2018, 'Summer', 'U14', 2)
+,('Barrys Bush Table Tennis Squad', 2019, 'Summer', 'O18', 2)
+,('Island Isaac Bowls Bash', 2019, 'Winter', 'U16', 4);
+
+INSERT INTO PlayerRegistration(PlayerID ,ClubName ,Year ,SeasonName ,AgeGroup ,TeamNumber ,DateRegistered)
+VALUES (10003, 'Mt Martha Basketball Club', 2018, 'Summer', 'U14', 2, '01/JAN/2018')
+,(123456789, 'Mt Martha Basketball Club', 2018, 'Summer', 'U14', 2, '25/DEC/2017')
+,(102145149, 'Island Isaac Bowls Bash', 2019, 'Winter', 'U16', 4, '09/FEB/2019')
+,(102145149, 'Barrys Bush Table Tennis Squad', 2019, 'Summer', 'O18', 2, '14/NOV/2018');
