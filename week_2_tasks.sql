@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS dbo.Club;
-DROP TABLE IF EXISTS dbo.Season;
-DROP TABLE IF EXISTS dbo.Player;
-DROP TABLE IF EXISTS dbo.TeamEntry;
 DROP TABLE IF EXISTS dbo.PlayerRegistration;
+DROP TABLE IF EXISTS dbo.TeamEntry;
+DROP TABLE IF EXISTS dbo.Player;
+DROP TABLE IF EXISTS dbo.Season;
+DROP TABLE IF EXISTS dbo.Club;
 
 CREATE TABLE Club(
 ClubName        NVARCHAR(100) PRIMARY KEY
@@ -40,7 +40,7 @@ PlayerID        INT
 ,SeasonName     NVARCHAR(6)
 ,AgeGroup       NVARCHAR(3)
 ,TeamNumber     INT
-,DateRegistered DATE
+,DateRegistered DATE NOT NULL
 ,PRIMARY KEY (PlayerID, ClubName, Year, SeasonName, AgeGroup, TeamNumber)
 ,FOREIGN KEY (PlayerID) REFERENCES Player
 ,FOREIGN KEY (ClubName, Year, SeasonName, AgeGroup, TeamNumber) REFERENCES TeamEntry
